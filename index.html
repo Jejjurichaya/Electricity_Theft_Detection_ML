@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electricity Theft Prediction System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>🚨 Electricity Theft Prediction System</h1>
+            <p>Predict whether electricity is being stolen based on various input features</p>
+        </header>
+
+        <form id="theftForm" class="form">
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="usage">Usage (kWh)</label>
+                    <input type="number" id="usage" name="usage" min="0" step="0.1" value="0.0" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="timeOfDay">Time of Day</label>
+                    <select id="timeOfDay" name="timeOfDay" required>
+                        <option value="">Select Time</option>
+                        <option value="Morning">Morning</option>
+                        <option value="Afternoon">Afternoon</option>
+                        <option value="Evening">Evening</option>
+                        <option value="Night">Night</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="fluctuation">Voltage Fluctuations</label>
+                    <input type="number" id="fluctuation" name="fluctuation" min="0" step="0.1" value="0.0" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="residents">Number of Residents</label>
+                    <input type="number" id="residents" name="residents" min="0" step="1" value="1" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="appliances">Appliance Count</label>
+                    <input type="number" id="appliances" name="appliances" min="0" step="1" value="1" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="industrialArea">Industrial Area Nearby</label>
+                    <select id="industrialArea" name="industrialArea" required>
+                        <option value="">Select Option</option>
+                        <option value="No">No</option>
+                        <option value="Yes">Yes</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="theftHistory">Previous Theft History</label>
+                    <select id="theftHistory" name="theftHistory" required>
+                        <option value="">Select Option</option>
+                        <option value="No">No</option>
+                        <option value="Yes">Yes</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="dailyUsage">Average Daily Usage</label>
+                    <input type="number" id="dailyUsage" name="dailyUsage" min="0" step="0.1" value="0.0" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="paymentDelay">Bill Payment Delay (days)</label>
+                    <input type="number" id="paymentDelay" name="paymentDelay" min="0" step="1" value="0" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="usageSpike">Unusual Usage Spike</label>
+                    <select id="usageSpike" name="usageSpike" required>
+                        <option value="">Select Option</option>
+                        <option value="No">No</option>
+                        <option value="Yes">Yes</option>
+                    </select>
+                </div>
+            </div>
+
+            <button type="submit" class="submit-btn">Predict</button>
+        </form>
+
+        <div id="resultContainer" class="result-container hidden">
+            <div id="resultBox" class="result-box"></div>
+        </div>
+
+        <div id="loadingSpinner" class="loading-spinner hidden">
+            <div class="spinner"></div>
+            <p>Making prediction...</p>
+        </div>
+
+        <div id="errorMessage" class="error-message hidden"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
